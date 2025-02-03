@@ -1,4 +1,5 @@
 import { z } from "zod";
+
 import { tagSchema } from "./tagSchema";
 
 export const createSeriesSchema = z.object({

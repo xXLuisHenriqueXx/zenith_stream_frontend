@@ -1,16 +1,28 @@
-import { useState } from 'react';
-import './App.css';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import Home from "./pages/Home";
+import AdminLogin from "./pages/Admin/Login";
+import NotFound from "./pages/NotFound";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Home />
+    },
+    {
+      path: "/admin/login",
+      element: <AdminLogin />
+    },
+    {
+      path: "*",
+      element: <NotFound />
+    },
+  ])
 
   return (
     <>
-      <h1>Counter</h1>
-      <h2>{count}</h2>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-      <button onClick={() => setCount(count - 1)}>Decrement</button>
+      <RouterProvider router={router} />
     </>
   )
 }
