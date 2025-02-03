@@ -19,9 +19,9 @@ const card = tv({
     labelInput: "flex flex-row items-center w-full h-12 px-4 mb-4 bg-gray-800 text-white rounded-sm",
     icon: "w-6 h-6 text-white",
     input: "w-full h-full bg-transparent text-white ml-2 focus:outline-none",
-    button: "relative w-full h-12 px-4 bg-transparent hover:bg-blue-500 border-2 border-blue-500 rounded-sm text-white hover:text-slate-900 transition-all duration-200",
+    button: "relative flex justify-center items-center w-full h-12 px-4 bg-transparent hover:bg-blue-500 border-2 border-blue-500 rounded-sm text-white hover:text-slate-900 transition-all duration-200",
     buttonText: "text-lg font-bold",
-    buttonIcon: "w-6 h-6 absolute top-1/2 transform -translate-y-1/2 right-4",
+    buttonIcon: "w-6 h-6 absolute right-4",
   },
 });
 
