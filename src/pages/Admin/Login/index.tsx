@@ -25,29 +25,20 @@ const card = tv({
   },
 });
 
-const {
-  containerLogin,
-  title,
-  description,
-  form,
-  labelInput,
-  icon,
-  input,
-  button,
-  buttonText,
-  buttonIcon,
-} = card();
+const { containerLogin, title, description, form, labelInput, icon, input, button, buttonText, buttonIcon } = card();
 
 type AdminLoginData = z.infer<typeof adminLoginSchema>;
 
 function AdminLogin() {
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
   const navigation = useNavigate();
 
   const { register, handleSubmit } = useForm<AdminLoginData>({
     resolver: zodResolver(adminLoginSchema),
   });
 
+  const typeInputPassword = showPassword ? "text" : "password";
+  
   const navigateToDashboard = () => {
     navigation("/admin/dashboard");
   };
@@ -69,8 +60,6 @@ function AdminLogin() {
       alert(error.message);
     }
   };
-
-  const typeInputPassword = showPassword ? "text" : "password";
 
   return (
     <Container screen="login">

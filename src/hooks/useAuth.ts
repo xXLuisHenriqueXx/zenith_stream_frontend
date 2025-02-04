@@ -25,6 +25,6 @@ export function useAuth() {
   return {
     isAuthenticated,
     validateToken,
-    logout,
+    logout
   };
 }

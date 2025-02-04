@@ -29,7 +29,7 @@ function Navbar() {
 
   return (
     <>
-      <div className={containerMain()}>
+      <nav className={containerMain()}>
         <Menu onClick={() => setShowSidebar(!showSidebar)} className={icon()} />
 
         {isAuthenticated ? (
@@ -41,7 +41,7 @@ function Navbar() {
             <p className={buttonText()}>Acessar</p>
           </Link>
         )}
-      </div>
+      </nav>
 
       {showSidebar && <Sidebar setShowSidebar={setShowSidebar} />}
     </>
