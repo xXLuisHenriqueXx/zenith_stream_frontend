@@ -1,14 +1,14 @@
 import { useState } from "react";
 import { tv } from "tailwind-variants";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { ArrowRight, Eye, EyeOff, Key, Lock, Mail } from "lucide-react";
+import { ArrowRight, Eye, EyeOff, House, Key, Lock, Mail } from "lucide-react";
 
 import { adminService } from "../../../services/adminService";
 import { adminLoginSchema } from "../../../schemas/adminSchemas";
-import Container from "../../../components/Container";
+import Container from "../../../components/Common/Container";
 
 const card = tv({
   slots: {
@@ -20,9 +20,16 @@ const card = tv({
     icon: "w-6 h-6 text-white",
     input: "w-full h-full bg-transparent text-white ml-2 focus:outline-none",
     button: "relative flex justify-center items-center w-full h-12 px-4 bg-transparent hover:bg-blue-500 border-2 border-blue-500 rounded-sm text-white hover:text-slate-900 transition-all duration-200",
-    buttonText: "text-lg font-bold",
+    buttonText: "text-lg font-oswald font-medium uppercase",
     buttonIcon: "w-6 h-6 absolute right-4",
   },
+  variants: {
+    button: {
+      "second": {
+        button: "mt-4"
+      }
+    }
+  }
 });
 
 const { containerLogin, title, description, form, labelInput, icon, input, button, buttonText, buttonIcon } = card();
@@ -64,9 +71,9 @@ function AdminLogin() {
   return (
     <Container screen="login">
       <section className={containerLogin()}>
-        <h1 className={title()}>Bem vindo(a) de volta!</h1>
+        <h1 className={title()}>Welcome back!</h1>
         <p className={description()}>
-          Realize o login para acessar as funcionalidades.
+          Log in to access the features.
         </p>
 
         <form className={form()} onSubmit={handleSubmit(onSubmit)}>
@@ -121,6 +128,11 @@ function AdminLogin() {
             <ArrowRight className={buttonIcon()} />
           </button>
         </form>
+
+        <Link to="/" className={button({ button: "second" })}>
+          <p className={buttonText()}>Return to home</p>
+          <House className={buttonIcon()} />
+        </Link>
       </section>
     </Container>
   );

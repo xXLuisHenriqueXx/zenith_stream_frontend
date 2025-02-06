@@ -4,7 +4,8 @@ import { api } from "./api";
 import { userLoginSchema, userRegisterSchema, watchContentSchema, watchLaterSchema } from "../schemas/userSchema";
 
 type loginParams = z.infer<typeof userLoginSchema>;
-type registerParams = z.infer<typeof userRegisterSchema>;
+type registerParamsBase = z.infer<typeof userRegisterSchema>;
+type registerParams = Omit<registerParamsBase, "birthDate">;
 type watchContentParams = z.infer<typeof watchContentSchema>;
 type watchLaterParams = z.infer<typeof watchLaterSchema>;
 
@@ -22,7 +23,7 @@ export const userService = {
   register: async (params: registerParams) => {
     try {
       const response = await api.post("/user/register", params);
-
+      
       return response;
     } catch (error: any) {
       throw new Error(error);

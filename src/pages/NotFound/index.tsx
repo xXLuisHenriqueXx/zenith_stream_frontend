@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { tv } from "tailwind-variants";
 
-import Container from "../../components/Container";
+import Container from "../../components/Common/Container";
 
 const card = tv({
   slots: {
@@ -21,12 +21,11 @@ function NotFound() {
       <section className={containerNotFound()}>
         <h1 className={title()}>404</h1>
         <h1 className={subtitle()}>
-          Ops, parece que a paǵina que você tentou acessar não existe no nosso
-          sistema
+          Oops, it appears that the page you tried to access does not exist on our system
         </h1>
 
         <Link to="/" className={button()}>
-          <p className={buttonText()}>Voltar para a Home</p>
+          <p className={buttonText()}>Return to home</p>
         </Link>
       </section>
     </Container>

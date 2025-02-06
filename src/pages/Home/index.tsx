@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 import { Link } from "react-router-dom";
 
-import Container from "../../components/Container";
+import Container from "../../components/Common/Container";
 
 const card = tv({
   slots: {

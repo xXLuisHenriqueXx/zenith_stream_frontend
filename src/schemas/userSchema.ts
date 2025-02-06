@@ -4,7 +4,8 @@ export const userRegisterSchema = z.object({
     username: z.string().trim().min(3, { message: "Username must to have at least 3 characteres" }),
     password: z.string().min(8, { message: "Password must to have at least 8 characteres" }),
     email: z.string().email({ message: "Invalid email" }),
-    age: z.number().int()
+    age: z.number().int().optional(),
+    birthDate: z.string()
 });
 
 export const userLoginSchema = z.object({

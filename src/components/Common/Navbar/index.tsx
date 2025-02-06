@@ -11,7 +11,7 @@ const card = tv({
     containerMain: "fixed top-0 flex justify-between items-center w-full p-4 xl:px-12 2xl:px-24 bg-transparent z-50",
     icon: "w-8 h-8 lg:w-10 lg:h-10 text-white cursor-pointer",
     button: "flex flex-row items-center justify-center h-10 px-4 bg-transparent hover:bg-blue-500 border-2 border-blue-500 rounded-sm text-white hover:text-slate-900 transition-all duration-200",
-    buttonText: "text-sm lg:text-base font-inter font-bold uppercase",
+    buttonText: "text-sm lg:text-base font-oswald font-medium uppercase",
   },
 });
 

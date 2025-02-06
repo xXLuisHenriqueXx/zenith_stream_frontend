@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 import { tokenService } from "../services/tokenService";
 
 export function useAuth() {
@@ -11,6 +12,7 @@ export function useAuth() {
   async function validateToken() {
     try {
       const { status, data } = await tokenService.validateTokenRoute();
+
       setIsAuthenticated(status === 200 && data.success);
     } catch {
       setIsAuthenticated(false);

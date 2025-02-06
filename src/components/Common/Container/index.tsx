@@ -1,5 +1,5 @@
 import { tv } from "tailwind-variants";
-import Navbar from "../Common/Navbar";
+import Navbar from "../Navbar";
 
 const card = tv({
   slots: {
@@ -30,7 +30,7 @@ interface Props {
 function Container({ children, screen }: Props) {
   return (
     <main className={container({ container: screen })}>
-      <Navbar />
+      { screen !== "login" && <Navbar />}
       
       {children}
     </main>
