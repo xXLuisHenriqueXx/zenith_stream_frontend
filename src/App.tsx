@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Home from "./pages/Home";
 import AdminLogin from "./pages/Admin/Login";
+import AdminDashboard from "./pages/Admin/Dashboard";
 import UserLogin from "./pages/User/Login";
 import UserRegister from "./pages/User/Register";
 import NotFound from "./pages/NotFound";
@@ -15,6 +16,10 @@ function App() {
     {
       path: "/admin/login",
       element: <AdminLogin />,
+    },
+    {
+      path: "/admin/dashboard",
+      element: <AdminDashboard />,
     },
     {
       path: "/user/login",

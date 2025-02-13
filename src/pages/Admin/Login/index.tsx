@@ -54,11 +54,15 @@ function AdminLogin() {
     data: AdminLoginData
   ) => {
     try {
+      console.log(data);
+
       const { status } = await adminService.login(data);
+
+      console.log(status)
 
       if (status == 401) {
         alert("Usuário ou senha inválidos");
-      } else if (status === 200) {
+      } else if (status === 201) {
         alert("Usuário logado com sucesso");
 
         navigateToDashboard();
@@ -67,7 +71,6 @@ function AdminLogin() {
       alert(error.message);
     }
   };
-
   return (
     <Container screen="login">
       <section className={containerLogin()}>
@@ -124,7 +127,7 @@ function AdminLogin() {
           </label>
 
           <button type="submit" className={button()}>
-            <h2 className={buttonText()}>Login</h2>
+            <p className={buttonText()}>Login</p>
             <ArrowRight className={buttonIcon()} />
           </button>
         </form>

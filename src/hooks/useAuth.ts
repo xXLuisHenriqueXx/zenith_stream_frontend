@@ -4,6 +4,7 @@ import { tokenService } from "../services/tokenService";
 
 export function useAuth() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [isAdmin, setIsAdmin] = useState<boolean>(false);
 
   useEffect(() => {
     validateToken();
@@ -14,6 +15,7 @@ export function useAuth() {
       const { status, data } = await tokenService.validateTokenRoute();
 
       setIsAuthenticated(status === 200 && data.success);
+      setIsAdmin(data.role === "ROLE_ADMIN");
     } catch {
       setIsAuthenticated(false);
     }
@@ -26,6 +28,7 @@ export function useAuth() {
 
   return {
     isAuthenticated,
+    isAdmin,
     validateToken,
     logout
   };

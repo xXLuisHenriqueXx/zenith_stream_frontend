@@ -7,6 +7,7 @@ export const createMovieSchema = z.object({
     description: z.string().min(3, { message: "Description must to have at least 3 characteres" }),
     director: z.string().min(3, { message: "Director must to have at least 3 characteres" }),
     durationInMinutes: z.number().min(1, { message: "Duration must to have at least 1 minute" }),
+    durantionInHours: z.number().min(1, { message: "Duration must to have at least 1 hour" }).optional(),
     ageRestriction: z.enum(["AGE_ALL", "AGE_10", "AGE_12", "AGE_14", "AGE_16", "AGE_18"]),
     tags: tagSchema.array().optional(),
     releaseYear: z.number().min(1900, { message: "Release year must to be greater than 1900" }),
